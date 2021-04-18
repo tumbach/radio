@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Tumbach;Radio</title>
+	<link rel="stylesheet" href="assets/colors/cyan.css" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+</head>
+<body>
+<div class="container">
+	<div class="layout">
+		<div class="player">
+			<div class="description top">
+				<span class="title">Загрузка...</span>
+			</div>
+
+			<div class="wrapper">
+				<div class="hex button play">
+					<div></div>
+					<div></div>
+					<div>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 5" class="play icon">
+							<polygon points="0 0, 5 2.5, 0 5" fill="#fff" />
+						</svg>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 5" class="pause icon">
+							<polygon points="0 0, 2 0, 2 5, 0 5" fill="#fff" />
+							<polygon points="3 0, 5 0, 5 5, 3 5" fill="#fff" />
+						</svg>
+					</div>
+				</div>
+				<div class="title">
+					<!--Название-->
+				</div>
+				<div class="artist">
+					<!--Исполнитель-->
+				</div>
+			</div>
+			<div class="description bottom">
+				<div class="time">
+					--:--
+				</div>
+				<div class="progressWrap">
+					<input class="progress" id="volume" type="range" value="100" min="0" max="100" step="5" />
+				</div>
+			</div>
+		</div>
+		<div class="listWrap">
+			<div class="stationList folded">
+				<!--<div class="entry">
+					<div class="name">Название станции 1</div>
+					<div class="title">Исполнитель - Название</div>
+					<div class="time">&#45;&#45;:&#45;&#45;</div>
+					<div class="more">
+						<a href="#" target="_blank">Website</a>
+						<a href="#" target="_blank">Playlist</a>
+					</div>
+				</div>-->
+			</div>
+			<div class="footer">
+				<div class="hint fold">Раскрыть</div>
+				<select id="typeSelect">
+					<!--<optgroup label="Stream type">
+						<option>OPUS</option>
+						<option>AAC</option>
+						<option>MP3</option>
+					</optgroup>-->
+				</select>
+				<select id="themeSelect">
+					<optgroup label="Theme">
+						<option>Cyan</option>
+						<!--<option>Magenta</option>
+						<option>Yellow</option>
+						<option>Kyrin</option>-->
+					</optgroup>
+				</select>
+			</div>
+			<div class="pasteleft">
+				Powered by
+				<a href="https://github.com/tumbach/titleturtle" target="_blank">
+					titleturtle
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

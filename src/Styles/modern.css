@@ -1,0 +1,237 @@
+html, body {
+	font-size: 16px;
+	/*font-size: 2vh;*/
+	font-family: var(--fontFamily);
+	background-color: var(--backgroundColor);
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.layout {
+	position: relative;
+	width: 100%;
+	max-width: 768px;
+}
+
+
+
+.hex {
+	position: relative;
+}
+
+.hex div {
+	position: absolute;
+	width: 100%;
+	height: 58%;
+	border-left: .25rem solid var(--primaryTextColor);
+	border-right: .25rem solid var(--primaryTextColor);
+	border-radius: .2rem;
+	background-color: #000;
+}
+
+.hex div:first-of-type {
+	transform: rotate(60deg);
+	/*background-color: #99d9ea;*/
+}
+
+.hex div:nth-of-type(2) {
+	transform: rotate(300deg);
+	/*background-color: #ff6633;*/
+}
+
+.hex div:last-of-type {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 54%;
+	top: 2%;
+}
+
+.hex.button {
+	transform: translate(-50%, -50%);
+	width: 5rem;
+	height: 5rem;
+	left: 2.5rem;
+	top: 3.9rem;
+}
+
+.hex.button.play .icon.pause,
+.hex.button.pause .icon.play {
+	display: none;
+}
+
+.player .button {
+	position: absolute;
+	user-select: none;
+	z-index: 1;
+}
+
+
+
+.player {
+	position: relative;
+	width: 100%;
+	z-index: 1;
+}
+
+.player .wrapper {
+	min-height: 2.9rem;
+	padding-left: 5.5rem;
+	background: var(--playerGradient);
+}
+
+.player .wrapper .title {
+	font-size: 1.25rem;
+}
+
+.title:empty::after {
+	content: "<no title>";
+	color: var(--secondaryTextColor)
+}
+
+.player .wrapper .artist {
+	font-size: .75rem;
+	color: var(--secondaryTextColor);
+}
+
+.artist:empty::artist {
+	content: "<no artist>";
+}
+
+.player .description {
+	background-color: var(--playerBackgroundColor);
+	padding-left: 3rem;
+	margin-left: 2.5rem;
+	min-height: 1.4rem;
+}
+
+.player .description.top {
+	display: inline-block;
+	padding-right: 1em;
+}
+
+.player .description.bottom {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.player .progressWrap {
+	margin: 0 .5rem 0;
+	height: 1rem;
+}
+
+.listWrap {
+	position: relative;
+	top: -1.4em;
+	padding-top: 1.4em;
+	z-index: 0;
+	border-radius: 0 0 .25em .25em;
+	background-color: var(--listBackgroundColor);
+}
+
+.stationList {
+	max-height: calc(100vh - 10.7rem);
+	overflow: auto;
+	transition: max-height .2s;
+}
+
+.stationList.folded {
+	max-height: 0;
+}
+
+.stationList .entry {
+	padding: .5rem;
+	position: relative;
+}
+
+.stationList .entry:nth-of-type(even) {
+	background-color: var(--listEvenBackgroundColor);
+}
+.stationList .entry.selected {
+	background-color: var(--listSelectedBackgroundColor);
+}
+.stationList .entry:hover {
+	background-color: var(--listHoverBackgroundColor);
+}
+
+.stationList .name, .stationList .time {
+	font-size: .75rem;
+	color: var(--secondaryTextColor);
+}
+
+.stationList .time {
+	position: absolute;
+	right: .5rem;
+	top: .5rem;
+}
+
+.title, .artist {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	max-width: 100%;
+}
+
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.footer > * {
+	align-self: stretch;
+	padding: .5rem;
+}
+
+#typeSelect {
+	text-align: center;
+	text-align-last: center;
+}
+
+#themeSelect {
+	text-align: right;
+	text-align-last: right;
+}
+
+.footer select, .fold, .pasteleft {
+	color: var(--secondaryTextColor);
+	font-size: .8rem;
+}
+
+.pasteleft {
+	float: right;
+}
+
+a {
+	color: var(--primaryTextColor);
+	text-decoration: underline;
+	text-decoration-skip-ink: none;
+}
+
+@media screen and (max-width: 812px) {
+	.container {
+		display: block;
+		/*font-size: 2vmax;*/
+	}
+	.layout {
+		max-width: 100%;
+	}
+	#volume {
+		display: none;
+	}
+}
+
+@media screen and (max-height: 447px) {
+	.stationList {
+		max-height: 40rem;
+		overflow: auto;
+		transition: max-height .2s;
+	}
+}

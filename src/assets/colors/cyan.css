@@ -1,0 +1,13 @@
+:root {
+	--fontFamily: 'Noto Sans', 'Open Sans', 'Segoe UI', sans-serif;
+	--primaryTextColor: #fffd;
+	--secondaryTextColor: #fff8;
+	--backgroundColor: #000;
+	--hexBackgroundColor: #000;
+	--playerBackgroundColor: #088;
+	--playerGradient: linear-gradient(to right, #0888 42%, #0880);
+	--listBackgroundColor: #088b;
+	--listEvenBackgroundColor: #fff1;
+	--listHoverBackgroundColor: #fff5;
+	--listSelectedBackgroundColor: #fff4;
+}

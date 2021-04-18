@@ -1,0 +1,183 @@
+[
+  {
+    "id": "tumbach",
+    "name": "Tumbach;Radio",
+    "url": "https://radio.tumba.ch",
+    "sources": [
+      {
+        "name": "stream",
+        "url": "https://radio.tumba.ch/stream",
+        "type": "OPUS"
+      },
+      {
+        "name": "stream-low",
+        "url": "https://radio.tumba.ch/stream-low",
+        "type": "AAC"
+      },
+      {
+        "name": "stream-ultra-low",
+        "url": "https://radio.tumba.ch/stream-ultra-low",
+        "type": "AAC"
+      }
+    ]
+  },
+  {
+    "id": "provodach",
+    "name": "Provoda.ch",
+    "url": "https://provoda.ch",
+    "sources": [
+      {
+        "name": "provodach",
+        "url": "https://station.waveradio.org/provodach",
+        "type": "AAC"
+      },
+      {
+        "name": "provodach-low",
+        "url": "https://station.waveradio.org/provodach-low",
+        "type": "AAC"
+      },
+      {
+        "name": "provodach.mp3",
+        "url": "https://station.waveradio.org/provodach.mp3",
+        "type": "MP3"
+      },
+      {
+        "name": "provodach-low.mp3",
+        "url": "https://station.waveradio.org/provodach-low.mp3",
+        "type": "MP3"
+      }
+    ]
+  },
+  {
+    "id": "soviet",
+    "url": "https://station.waveradio.org/soviet",
+    "name": "Советская волна",
+    "sources": [
+      {
+        "name": "soviet",
+        "url": "https://station.waveradio.org/soviet",
+        "type": "AAC"
+      },
+      {
+        "name": "soviet.mp3",
+        "url": "https://station.waveradio.org/soviet.mp3",
+        "type": "MP3"
+      }
+    ]
+  },
+  {
+    "id": "nyan",
+    "name": "J-Trance channel on WaveRadio",
+    "url": "https://nyan.waveradio.org/",
+    "sources": [
+      {
+        "name": "nyan",
+        "url": "https://station.waveradio.org/nyan",
+        "type": "AAC"
+      },
+      {
+        "name": "nyan.mp3",
+        "url": "https://station.waveradio.org/nyan.mp3",
+        "type": "MP3"
+      }
+    ]
+  },
+  {
+    "id": "witch",
+    "name": "Witch House on WaveRadio",
+    "url": "https://station.waveradio.org/witch",
+    "sources": [
+      {
+        "name": "witch",
+        "url": "https://station.waveradio.org/witch",
+        "type": "AAC"
+      }
+    ]
+  },
+  {
+    "id": "plazaone",
+    "url": "http://radio.plaza.one/ogg",
+    "name": "Nightwave Plaza",
+    "sources": [
+      {
+        "name": "OPUS",
+        "url": "https://radio.plaza.one/opus",
+        "type": "OPUS"
+      },
+      {
+        "name": "opus_64",
+        "url": "https://radio.plaza.one/opus_64",
+        "type": "OPUS"
+      },
+      {
+        "name": "OGG",
+        "url": "https://radio.plaza.one/ogg",
+        "type": "OGG"
+      },
+      {
+        "name": "ogg_64",
+        "url": "https://radio.plaza.one/ogg_64",
+        "type": "OGG"
+      },
+      {
+        "name": "MP3",
+        "url": "https://radio.plaza.one/mp3",
+        "type": "MP3"
+      },
+      {
+        "name": "mp3_96",
+        "url": "https://radio.plaza.one/mp3_96",
+        "type": "MP3"
+      }
+    ]
+  },
+  {
+    "id": "lainon",
+    "url": "https://lainon.life/radio/cyberia.ogg",
+    "name": "lainon.life (cyberia)",
+    "sources": [
+      {
+        "name": "cyberia.ogg",
+        "url": "https://lainon.life/radio/cyberia.ogg",
+        "type": "OGG"
+      },
+      {
+        "name": "cyberia.mp3",
+        "url": "https://lainon.life/radio/cyberia.mp3",
+        "type": "MP3"
+      }
+    ]
+  },
+  {
+    "id": "anonfm",
+    "url": "https://anon.fm/",
+    "name": "Radio Anonymous",
+    "sources": [
+      {
+        "name": "radio",
+        "url": "https://anon.fm/streams/radio",
+        "type": "MP3"
+      },
+      {
+        "name": "radio.ogg",
+        "url": "https://anon.fm/streams/radio.ogg",
+        "type": "OGG"
+      },
+      {
+        "name": "radio-low",
+        "url": "https://anon.fm/streams/radio-low",
+        "type": "MP3"
+      },
+      {
+        "name": "radio-low.ogg",
+        "url": "https://anon.fm/streams/radio-low.ogg",
+        "type": "OGG"
+      },
+      {
+        "name": "radio.aac",
+        "url": "https://anon.fm/streams/radio.aac",
+        "type": "AAC"
+      }
+    ]
+  }
+]

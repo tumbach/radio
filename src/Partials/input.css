@@ -1,0 +1,25 @@
+select {
+	background: transparent;
+	border: 0;
+	outline: 0;
+	color: var(--secondaryTextColor);
+	font-family: var(--fontFamily);
+	appearance: none;
+	align-self: stretch;
+	cursor: pointer;
+}
+
+select:hover {
+	color: var(--primaryTextColor);
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+optgroup {
+	background: var(--listBackgroundColor);
+}
+option {
+	background: var(--playerBackgroundColor);
+}
