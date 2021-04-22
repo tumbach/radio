@@ -1,3 +1,7 @@
+:root {
+	--fontFamily: 'Noto Sans', 'Open Sans', 'Segoe UI', sans-serif;
+}
+
 html, body {
 	font-size: 16px;
 	/*font-size: 2vh;*/

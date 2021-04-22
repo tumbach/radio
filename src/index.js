@@ -12,6 +12,14 @@ import Player from "./Modules/Player";
 import Station from "./Modules/Station";
 
 (async () => {
+  let colorCss = document.querySelector('#colorCss');
+  let themeSelect = document.querySelector('#themeSelect');
+  themeSelect.addEventListener('change', setTheme);
+  function setTheme() {
+    colorCss.href = 'assets/colors/' + themeSelect.value + '.css';
+  }
+  setTheme();
+
   let PlayerDOM = {
     stationList: document.querySelector('.stationList'),
     station: document.querySelector('.player .description .title'),
@@ -67,5 +75,4 @@ import Station from "./Modules/Station";
     let folded = PlayerDOM.stationList.classList.toggle('folded');
     foldButton.innerText = folded ? 'Раскрыть' : 'Свернуть';
   });
-
 })();

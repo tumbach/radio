@@ -1,0 +1,12 @@
+:root {
+	--primaryTextColor: #fffd;
+	--secondaryTextColor: #fffa;
+	--backgroundColor: #000;
+	--hexBackgroundColor: #000;
+	--playerBackgroundColor: #f0fa;
+	--playerGradient: linear-gradient(to right, #f0f8 42%, #0880);
+	--listBackgroundColor: #f0f8;
+	--listEvenBackgroundColor: #fff1;
+	--listHoverBackgroundColor: #fff5;
+	--listSelectedBackgroundColor: #fff4;
+}
