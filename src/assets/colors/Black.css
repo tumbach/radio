@@ -1,11 +1,11 @@
 :root {
 	--primaryTextColor: #fffd;
-	--secondaryTextColor: #fffa;
-	--backgroundColor: #000;
+	--secondaryTextColor: #fff8;
+	--backgroundColor: #222;
 	--hexBackgroundColor: #000;
-	--playerBackgroundColor: #f0fa;
-	--playerGradient: linear-gradient(to right, #f0f8 42%, #0880);
-	--listBackgroundColor: #f0f8;
+	--playerBackgroundColor: #000;
+	--playerGradient: linear-gradient(to right, #0008 42%, #0880);
+	--listBackgroundColor: #000b;
 	--listEvenBackgroundColor: #fff1;
 	--listOddBackgroundColor: #fff2;
 	--listHoverBackgroundColor: #fff5;

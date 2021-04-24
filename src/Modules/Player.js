@@ -94,7 +94,9 @@ export default class Player {
     this.audio.pause();
     this.audio.currentTime = 0;
     this.audio.src = "";
-    navigator.mediaSession.playbackState = "paused";
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.playbackState = "paused";
+    }
     this.audio = null;
   }
 
@@ -122,6 +124,7 @@ export default class Player {
       entry.classList.add('entry', 'clickable');
       entry.id = Station.id;
       entry.addEventListener('click', e => {
+        if (!getSelection().isCollapsed) return;
         if (this.currentStation === e.currentTarget.id) {
           return e.preventDefault();
         }

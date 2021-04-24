@@ -19,6 +19,7 @@ select::-ms-expand {
 
 optgroup {
 	background: var(--listBackgroundColor);
+	color: var(--primaryTextColor);
 }
 option {
 	background: var(--playerBackgroundColor);

@@ -7,6 +7,7 @@
 	--playerGradient: linear-gradient(to right, #0888 42%, #0880);
 	--listBackgroundColor: #088b;
 	--listEvenBackgroundColor: #fff1;
+	--listOddBackgroundColor: #fff2;
 	--listHoverBackgroundColor: #fff5;
 	--listSelectedBackgroundColor: #fff4;
 }

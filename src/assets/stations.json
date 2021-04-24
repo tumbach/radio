@@ -179,5 +179,27 @@
         "type": "AAC"
       }
     ]
+  },
+  {
+    "id": "anonfmbeta",
+    "url": "https://anon.fm/",
+    "name": "Radio Anonymous (beta)",
+    "sources": [
+      {
+        "name": "music.opus",
+        "url": "http://beta.anon.fm:8000/music.opus",
+        "type": "OPUS"
+      },
+      {
+        "name": "music.mp3",
+        "url": "http://beta.anon.fm:8000/music.mp3",
+        "type": "MP3"
+      },
+      {
+        "name": "music.ogg",
+        "url": "http://beta.anon.fm:8000/music.ogg",
+        "type": "OGG"
+      }
+    ]
   }
 ]

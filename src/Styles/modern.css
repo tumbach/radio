@@ -2,7 +2,11 @@
 	--fontFamily: 'Noto Sans', 'Open Sans', 'Segoe UI', sans-serif;
 }
 
-html, body {
+html {
+	background: #222;
+}
+
+body {
 	font-size: 16px;
 	/*font-size: 2vh;*/
 	font-family: var(--fontFamily);
@@ -17,7 +21,6 @@ html, body {
 }
 
 .layout {
-	position: relative;
 	width: 100%;
 	max-width: 768px;
 }
@@ -133,16 +136,16 @@ html, body {
 
 .listWrap {
 	position: relative;
-	top: -1.4em;
-	padding-top: 1.4em;
+	top: -1.4rem;
+	padding-top: 1.4rem;
+	margin-bottom: -1.4rem;
 	z-index: 0;
-	border-radius: 0 0 .25em .25em;
 	background-color: var(--listBackgroundColor);
 }
 
 .stationList {
-	max-height: calc(100vh - 10.7rem);
-	overflow: auto;
+	max-height: calc(100vh - 7.8rem);
+	overflow: hidden auto;
 	transition: max-height .2s;
 }
 
@@ -157,6 +160,9 @@ html, body {
 
 .stationList .entry:nth-of-type(even) {
 	background-color: var(--listEvenBackgroundColor);
+}
+.stationList .entry:nth-of-type(odd) {
+	background-color: var(--listOddBackgroundColor);
 }
 .stationList .entry.selected {
 	background-color: var(--listSelectedBackgroundColor);
@@ -189,9 +195,15 @@ html, body {
 	justify-content: space-between;
 }
 
+.footer, .listWrap {
+	border-radius: 0 0 .25rem .25rem;
+}
+
 .footer > * {
 	align-self: stretch;
 	padding: .5rem;
+	outline: none;
+	flex-grow: 1;
 }
 
 #typeSelect {
@@ -207,6 +219,15 @@ html, body {
 .footer select, .fold, .pasteleft {
 	color: var(--secondaryTextColor);
 	font-size: .8rem;
+}
+
+option {
+	background: var(--backgroundColor);
+	color: var(--primaryTextColor);
+}
+
+option[selected] {
+	background: var(--listSelectedBackgroundColor);
 }
 
 .pasteleft {

@@ -32,7 +32,7 @@ import Station from "./Modules/Station";
   };
 
   let ws = new WS({
-    url: 'wss://radio.tumba.ch/ws'
+    url: 'wss://titleturtle.tumba.ch/ws/'
   });
   try {
     await ws.init();

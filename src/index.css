@@ -1,9 +1,9 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background-color: #222;
     color: rgba(255, 255, 255, 0.87);
 }
+
 * {
     box-sizing: border-box;
 }
@@ -11,6 +11,7 @@ body {
 .icon {
     height: 1.5rem;
 }
+
 .play.icon {
     margin-left: .3rem;
 }
