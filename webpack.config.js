@@ -79,31 +79,6 @@ module.exports = {
 
   module: {
     rules: [
-      /*{
-        test: /\.m?js$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            "loader": "babel-loader",
-            "options": {
-              "exclude": [
-                /node_modules[\\\/]core-js/,
-                /node_modules[\\\/]webpack[\\\/]buildin/,
-              ],
-              "presets": [
-                [
-                  "@babel/preset-env",
-                  {
-                    "useBuiltIns": "usage", // alternative mode: "entry"
-                    "corejs": 3,
-                    "targets": "supports es6-class, supports websockets, last 2 years"
-                  }
-                ]
-              ]
-            }
-          }
-        ],
-      },*/
       {
         test: /\.s?css$/,
         use: [
