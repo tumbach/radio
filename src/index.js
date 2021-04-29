@@ -14,11 +14,14 @@ import Station from "./Modules/Station";
 (async () => {
   let colorCss = document.querySelector('#colorCss');
   let themeSelect = document.querySelector('#themeSelect');
-  themeSelect.addEventListener('change', setTheme);
-  function setTheme() {
-    colorCss.href = 'assets/colors/' + themeSelect.value + '.css';
+  themeSelect.addEventListener('change', () => setTheme(themeSelect.value));
+  function setTheme(theme) {
+    theme ??= globalThis.localStorage.getItem('theme') ?? themeSelect.value;
+    colorCss.href = `assets/colors/${theme}.css`;
+    themeSelect.value = theme;
+    globalThis.localStorage.setItem('theme', theme);
   }
-  setTheme();
+  setTheme(null);
 
   let PlayerDOM = {
     stationList: document.querySelector('.stationList'),
