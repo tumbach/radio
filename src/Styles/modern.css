@@ -27,55 +27,35 @@ body {
 
 
 
-.hex {
-	position: relative;
-}
+#hex-button {
+	background-color: transparent;
+	outline: none;
+	border: none;
+	padding: 0;
+	height: 5.8rem;
+	width: 5.8rem;
+	cursor: pointer;
 
-.hex div {
 	position: absolute;
-	width: 100%;
-	height: 58%;
-	border-left: .25rem solid var(--primaryTextColor);
-	border-right: .25rem solid var(--primaryTextColor);
-	border-radius: .2rem;
-	background-color: #000;
-}
-
-.hex div:first-of-type {
-	transform: rotate(60deg);
-	/*background-color: #99d9ea;*/
-}
-
-.hex div:nth-of-type(2) {
-	transform: rotate(300deg);
-	/*background-color: #ff6633;*/
-}
-
-.hex div:last-of-type {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 54%;
-	top: 2%;
-}
-
-.hex.button {
 	transform: translate(-50%, -50%);
-	width: 5rem;
-	height: 5rem;
-	left: 2.5rem;
-	top: 3.9rem;
+	left: 2.55rem;
+	top: 2.85rem;
+	z-index: 1;
 }
 
-.hex.button.play .icon.pause,
-.hex.button.pause .icon.play {
+#hex-button.play #hex-button-pause,
+#hex-button.pause #hex-button-play {
 	display: none;
 }
 
-.player .button {
-	position: absolute;
-	user-select: none;
-	z-index: 1;
+#hex-button-hex {
+	stroke: var(--primaryTextColor);
+	stroke-width: 1rem;
+}
+
+#hex-button-play,
+#hex-button-pause {
+	transform: translate(38%, 38%);
 }
 
 

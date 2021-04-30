@@ -23,7 +23,7 @@ import Station from "./Modules/Station";
   let PlayerDOM = {
     stationList: document.querySelector('.stationList'),
     station: document.querySelector('.player .description .title'),
-    button: document.querySelector('.player .hex'),
+    button: document.querySelector('#hex-button'),
     volume: document.querySelector('.player #volume'),
     artist: document.querySelector('.player .wrapper .artist'),
     title: document.querySelector('.player .wrapper .title'),
