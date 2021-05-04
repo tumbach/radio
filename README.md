@@ -19,21 +19,7 @@ Although it uses webpack, the output is native Javascript.
 ```shell script
 git clone https://github.com/tumbach/radio
 cd radio
-npm i
-```
-
-#### Set NODE_ENV variable
- Set NODE_ENV for your shell
-I could use `cross-env` but that's a little overhead!
-Btw you can set it permanently in `/etc/environment`.
-
-**Choose your destiny:**
-```shell script
-set NODE_ENV=production         # [Win] cmd
-$env:NODE_ENV="production"      # [Win] powershell
-export NODE_ENV=production      # [nix] *sh
-
-npm run env NODE_ENV=production # [any] For npm 7+
+npm i # or `yarn install`
 ```
 
 #### Production build
