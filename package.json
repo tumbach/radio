@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack",
+    "build": "cross-env NODE_ENV=production webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,9 +14,13 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.1",
+    "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "compression-webpack-plugin": "^7.1.2",
     "copy-webpack-plugin": "^8.1.1",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.2.4",
     "css-minimizer-webpack-plugin": "^2.0.0",
     "html-webpack-plugin": "^5.3.1",
@@ -30,5 +34,10 @@
     "webpack": "^5.35.1",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }

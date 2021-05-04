@@ -113,6 +113,11 @@ module.exports = {
         test: /\.(?:ico|gif|png|jpe?g)$/i,
         type: 'asset/resource',
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      }
     ]
   },
   optimization: {
