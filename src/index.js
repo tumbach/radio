@@ -8,74 +8,58 @@ import './Partials/input.css';
 import './Styles/modern.css';
 
 import WS from  './Modules/WS';
-import Player from "./Modules/Player";
-import Station from "./Modules/Station";
+import Player from './Modules/Player';
+import Station from './Modules/Station';
+import PlayerDOM from './Modules/PlayerDOM';
 
 (async () => {
-  let colorCss = document.querySelector('#colorCss');
-  let themeSelect = document.querySelector('#themeSelect');
-  themeSelect.addEventListener('change', () => setTheme(themeSelect.value));
-  function setTheme(theme) {
-    theme ??= globalThis.localStorage.getItem('theme') ?? themeSelect.value;
-    colorCss.href = `assets/colors/${theme}.css`;
-    themeSelect.value = theme;
-    globalThis.localStorage.setItem('theme', theme);
-  }
-  setTheme(null);
+  let DOM = new PlayerDOM();
 
-  let PlayerDOM = {
-    stationList: document.querySelector('.stationList'),
-    station: document.querySelector('.player .description .title'),
-    button: document.querySelector('#hex-button'),
-    volume: document.querySelector('.player #volume'),
-    artist: document.querySelector('.player .wrapper .artist'),
-    title: document.querySelector('.player .wrapper .title'),
-    time: document.querySelector('.player .description .time'),
-    typeSelect: document.querySelector('#typeSelect')
-  };
-
-  let ws = new WS({
-    url: 'wss://titleturtle.tumba.ch/ws/'
-  });
   try {
-    await ws.init();
-  } catch (e) {
-    PlayerDOM.title.innerText = '[Нет подключения к серверу тегов!]';
-  }
+    DOM.init();
 
-  let stations = require('./assets/stations.json');
-
-  const StationList = stations.map(station => new Station(station));
-
-  let player = new Player({
-    PlayerDOM,
-    StationList
-  });
-  player.initPlayer();
-  player.initStationList();
-  player.setStation(StationList[0]);
-
-  for await (let station of player.getStations()) {
-    await ws.send('SUB '+ station);
-  }
-
-  ws.use(data => {
-    if (data) {
-      for (let stationId of Object.keys(data)) {
-        let station = player.getStation(stationId);
-        station.setSong(data[stationId]);
-        player.updateStationSong(station);
-      }
+    let ws = new WS({
+      url: 'wss://titleturtle.tumba.ch/ws/'
+    });
+    try {
+      await ws.init();
+    } catch (e) {
+      DOM.setTitle('[Нет подключения к серверу тегов!]');
     }
-  }, {
-    answer: 'object',
-    key: player.getStations()
-  });
 
-  let foldButton = document.querySelector('.fold');
-  foldButton.classList.add('clickable');
-  foldButton.addEventListener('click', e => {
-    let folded = PlayerDOM.stationList.classList.toggle('folded');
-    foldButton.innerText = folded ? 'Раскрыть' : 'Свернуть';
-  });
+    let stations = require('./assets/stations.json');
+
+    const StationList = stations.map(station => new Station(station));
+
+    let player = new Player({
+      DOM,
+      PlayerDOM: DOM.getDOM(),
+      StationList
+    });
+    player.initPlayer();
+    player.initStationList();
+    player.setStation(StationList[0]);
+
+    for await (let station of player.getStations()) {
+      await ws.send('SUB ' + station);
+    }
+
+    ws.use(data => {
+      if (data) {
+        for (let stationId of Object.keys(data)) {
+          let station = player.getStation(stationId);
+          station.setSong(data[stationId]);
+          player.updateStationSong(station);
+        }
+      }
+    }, {
+      answer: 'object',
+      key: player.getStations()
+    });
+  } catch (e) {
+    DOM.setStationName(e.name || "Error!");
+    DOM.setTitle(e.message || "[Nothing is explained]");
+    DOM.setArtist(e.stack || "[We don't know what it means]");
+    // https://hereticsmusic.bandcamp.com/track/blood-tears
+  }
 })();
