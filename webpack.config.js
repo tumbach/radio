@@ -4,8 +4,8 @@ const zlib = require("zlib");
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const JsonMinimizerPlugin = require("json-minimizer-webpack-plugin");
 
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -31,7 +31,7 @@ module.exports = {
       patterns: [
         {
           from: paths.assets,
-          to: 'assets',
+          to: './assets',
         },
         {
           from: paths.static,
@@ -44,21 +44,19 @@ module.exports = {
       filename: 'index.html',
       xhtml: true
     }),
-    new webpack.ContextExclusionPlugin(/assets/),
     new MiniCssExtractPlugin({
       filename: debug ? "[name].css" : "[name].[contenthash:8].css",
     }),
-    new CleanWebpackPlugin(),
     new CompressionPlugin({
       filename: "[path][base].gz",
       algorithm: "gzip",
-      test: /\.(js|css|html|svg)$/,
+      test: /\.(js(?:on)?|css|html|svg)$/,
       minRatio: 0.8,
     }),
     new CompressionPlugin({
       filename: "[path][base].br",
       algorithm: "brotliCompress",
-      test: /\.(js|css|html|svg)$/,
+      test: /\.(js(?:on)?|css|html|svg)$/,
       compressionOptions: {
         params: {
           [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
@@ -73,14 +71,14 @@ module.exports = {
   },
   output: {
     path: paths.output,
-    //publicPath: '',
-    filename: '[name].[contenthash:8].js'
+    filename: '[name].[contenthash:8].js',
+    clean: true
   },
 
   module: {
     rules: [
       {
-        test: /\.s?css$/,
+        test: /\.css$/,
         use: [
           debug ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
@@ -92,7 +90,8 @@ module.exports = {
                   [
                     "postcss-preset-env",
                     {
-                      // Options
+                      stage: 4,
+                      autoprefixer: { grid: "autoplace" }
                     },
                   ],
                 ],
@@ -110,14 +109,14 @@ module.exports = {
         type: 'asset/inline',
       },
       {
-        test: /\.(?:ico|gif|png|jpe?g)$/i,
+        test: /\.(?:ico|gif|png|jpe?g|json)$/i,
         type: 'asset/resource',
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
-      }
+      },
     ]
   },
   optimization: {
@@ -135,16 +134,8 @@ module.exports = {
         },
         minify: CssMinimizerPlugin.cleanCssMinify,
       }),
+      new JsonMinimizerPlugin(),
     ],
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/](core-js|regenerator-runtime)[\\/]/,
-          name: 'vendor',
-          chunks: 'initial',
-        },
-      },
-    },
   },
 
   devServer: {
@@ -152,10 +143,6 @@ module.exports = {
     compress: debug,
     hot: true,
     port: 8080,
-    watchContentBase: true,
-    //progress: true
-  },
-  resolve: {
-    extensions: ['.js', '.json']
+    watchContentBase: true
   },
 };

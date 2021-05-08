@@ -1,19 +1,11 @@
 body {
     margin: 0;
     min-height: 100vh;
-    color: rgba(255, 255, 255, 0.87);
+    color: #fffd;
 }
 
 * {
     box-sizing: border-box;
-}
-
-.icon {
-    height: 1.5rem;
-}
-
-.play.icon {
-    margin-left: .3rem;
 }
 
 .clickable {

@@ -24,10 +24,10 @@ import PlayerDOM from './Modules/PlayerDOM';
     try {
       await ws.init();
     } catch (e) {
-      DOM.setTitle('[Нет подключения к серверу тегов!]');
+      throw new Error('[Нет подключения к серверу тегов!]');
     }
 
-    let stations = require('./assets/stations.json');
+    let stations = await (await fetch('./assets/stations.json')).json();
 
     const StationList = stations.map(station => new Station(station));
 
@@ -57,6 +57,7 @@ import PlayerDOM from './Modules/PlayerDOM';
       key: player.getStations()
     });
   } catch (e) {
+    console.error(e);
     DOM.setStationName(e.name || "Error!");
     DOM.setTitle(e.message || "[Nothing is explained]");
     DOM.setArtist(e.stack || "[We don't know what it means]");
