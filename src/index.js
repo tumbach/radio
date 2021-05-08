@@ -13,13 +13,29 @@ import Station from './Modules/Station';
 import PlayerDOM from './Modules/PlayerDOM';
 
 (async () => {
-  let DOM = new PlayerDOM();
+  let DOM = new PlayerDOM({
+    // head
+    colorCss: document.querySelector('#colorCss'),
+
+    // player
+    button: document.querySelector('#hex-button'),
+    station: document.querySelector('.player .description .title'),
+    artist: document.querySelector('.player .wrapper .artist'),
+    title: document.querySelector('.player .wrapper .title'),
+    time: document.querySelector('.player .description .time'),
+    volume: document.querySelector('.player #volume'),
+
+    // stations
+    stationList: document.querySelector('.stationList'),
+
+    // footer
+    foldButton: document.querySelector('.fold'),
+    typeSelect: document.querySelector('#typeSelect'),
+    themeSelect: document.querySelector('#themeSelect'),
+  });
 
   try {
-    DOM.init();
-
     let stations = await (await fetch('./assets/stations.json')).json();
-
     const StationList = stations.map(station => new Station(station));
 
     let player = new Player({
@@ -27,9 +43,11 @@ import PlayerDOM from './Modules/PlayerDOM';
       PlayerDOM: DOM.getDOM(),
       StationList
     });
+    DOM.init(player);
+
     player.initPlayer();
     player.initStationList();
-    player.setStation(StationList[0]);
+    player.setStation(globalThis.localStorage.getItem('station') ?? StationList[0]);
 
     let ws = new WS({
       url: 'wss://titleturtle.tumba.ch/ws/',
