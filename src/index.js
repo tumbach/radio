@@ -18,15 +18,6 @@ import PlayerDOM from './Modules/PlayerDOM';
   try {
     DOM.init();
 
-    let ws = new WS({
-      url: 'wss://titleturtle.tumba.ch/ws/'
-    });
-    try {
-      await ws.init();
-    } catch (e) {
-      throw new Error('[Нет подключения к серверу тегов!]');
-    }
-
     let stations = await (await fetch('./assets/stations.json')).json();
 
     const StationList = stations.map(station => new Station(station));
@@ -40,22 +31,35 @@ import PlayerDOM from './Modules/PlayerDOM';
     player.initStationList();
     player.setStation(StationList[0]);
 
-    for await (let station of player.getStations()) {
-      await ws.send('SUB ' + station);
+    let ws = new WS({
+      url: 'wss://titleturtle.tumba.ch/ws/',
+      timeout: i => Math.min(i * 5e3, 30e3)
+    });
+
+    ws.on('init', () => DOM.notifyAboutWSInit());
+    ws.on('open', () => requestSongs());
+    ws.on('reconnect', (timeout, tries) => DOM.notifyAboutWSReconnect(timeout, tries));
+    await ws.init();
+
+    async function requestSongs() {
+      DOM.notifyAboutWSSend();
+      for await (let station of player.getStations()) {
+        await ws.send('SUB ' + station);
+      }
+      ws.use(data => {
+        if (data) {
+          for (let stationId of Object.keys(data)) {
+            let station = player.getStation(stationId);
+            station.setSong(data[stationId]);
+            player.updateStationSong(station);
+          }
+        }
+      }, {
+        answer: 'object',
+        key: player.getStations()
+      });
     }
 
-    ws.use(data => {
-      if (data) {
-        for (let stationId of Object.keys(data)) {
-          let station = player.getStation(stationId);
-          station.setSong(data[stationId]);
-          player.updateStationSong(station);
-        }
-      }
-    }, {
-      answer: 'object',
-      key: player.getStations()
-    });
   } catch (e) {
     console.error(e);
     DOM.setStationName(e.name || "Error!");

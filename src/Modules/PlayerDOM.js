@@ -78,4 +78,19 @@ export default class PlayerDOM {
     this.#dom.station.innerText = stationName;
   }
 
+  notifyAboutWSInit() {
+    this.setArtist('Подключение...');
+    this.setTitle('');
+  }
+
+  notifyAboutWSSend() {
+    this.setArtist('Запрашиваем список треков...');
+    this.setTitle('');
+  }
+
+  notifyAboutWSReconnect(timeout, tries) {
+    this.setArtist(`Переподключение через ${Math.floor(timeout / 1000)} с... (попытка ${tries})`);
+    this.setTitle('');
+  }
+
 };
