@@ -183,7 +183,7 @@ body {
 	align-self: stretch;
 	padding: .5rem;
 	outline: none;
-	flex-grow: 1;
+	flex: 1;
 }
 
 #typeSelect {
@@ -227,9 +227,6 @@ a {
 	}
 	.layout {
 		max-width: 100%;
-	}
-	#volume {
-		display: none;
 	}
 }
 
