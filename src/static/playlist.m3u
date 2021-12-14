@@ -1,0 +1,7 @@
+#EXTM3U
+#EXTINF:-1,Tumbach;Radio
+http://radio.tumba.ch/stream
+#EXTINF:-1,Tumbach;Radio (Low quality)
+http://radio.tumba.ch/stream-low
+#EXTINF:-1,Tumbach;Radio (Ultra low quality)
+http://radio.tumba.ch/stream-ultra-low
