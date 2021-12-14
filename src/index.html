@@ -14,10 +14,9 @@
 				<span class="title">Загрузка...</span>
 			</div>
 			<div class="pasteleft">
-				Powered by
-				<a href="https://github.com/tumbach/titleturtle" target="_blank">
-					titleturtle
-				</a>
+				<label for="checkboxAbout">
+					О проекте
+				</label>
 			</div>
 			<div class="wrapper">
 				<button type="button" id="hex-button" class="play">
@@ -53,6 +52,19 @@
 			</div>
 		</div>
 		<div class="listWrap">
+			<div>
+				<input type="checkbox" hidden name="about" id="checkboxAbout" />
+				<article class="about">
+					Задача radio.tumbach.one: собрать любимые радиостанции на одной странице в едином интерфейсе.
+					Также это демонстрация работы titleturtle - штуки для парсинга информации о треке из аудиопотока.
+					Она создана для мгновенного оповещения о смене трека и сохранения истории треков.
+					<br/>
+					<br/>
+					titleturtle и radio.tumbach.one - продукт разработки <a href="https://baka.solutions" target="_blank">Baka Solutions</a>.
+					Проект имеет открытый исходный код. Вы можете помочь исправить ошибку или предложить улучшение
+					<a href="https://github.com/tumbach/radio" target="_blank">на Github</a>, это приветствуется.
+				</article>
+			</div>
 			<div class="stationList folded"></div>
 			<div class="footer">
 				<div class="hint fold">Раскрыть</div>
@@ -73,6 +85,7 @@
 				</select>
 			</div>
 		</div>
+
 	</div>
 </div>
 </body>
