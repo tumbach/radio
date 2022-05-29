@@ -36,6 +36,7 @@ import PlayerDOM from './Modules/PlayerDOM';
 
   try {
     let stations = await (await fetch('./assets/stations.json')).json();
+    // TODO: Get stations from Titleturtle ( https://github.com/tumbach/titleturtle/commit/e930a827ef914b91712bbb00fb84127704dfa413 )
     const StationList = stations.map(station => new Station(station));
 
     let player = new Player({
