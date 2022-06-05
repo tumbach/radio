@@ -66,23 +66,6 @@
     ]
   },
   {
-    "id": "nyan",
-    "name": "J-Trance channel on WaveRadio",
-    "url": "https://nyan.waveradio.org/",
-    "sources": [
-      {
-        "name": "nyan",
-        "url": "https://station.waveradio.org/nyan",
-        "type": "AAC"
-      },
-      {
-        "name": "nyan.mp3",
-        "url": "https://station.waveradio.org/nyan.mp3",
-        "type": "MP3"
-      }
-    ]
-  },
-  {
     "id": "witch",
     "name": "Witch House on WaveRadio",
     "url": "https://station.waveradio.org/witch",
