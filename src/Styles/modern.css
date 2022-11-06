@@ -78,7 +78,7 @@ body {
 
 .title:empty::after {
 	content: "<no title>";
-	color: var(--secondaryTextColor)
+	color: var(--secondaryTextColor);
 }
 
 .player .wrapper .artist {
@@ -86,7 +86,7 @@ body {
 	color: var(--secondaryTextColor);
 }
 
-.artist:empty::artist {
+.artist:empty::after {
 	content: "<no artist>";
 }
 
@@ -153,6 +153,11 @@ body {
 
 .stationList .name, .stationList .time {
 	font-size: .75rem;
+	color: var(--secondaryTextColor);
+}
+
+.stationList .entry .title:empty::after {
+	content: "<no data>";
 	color: var(--secondaryTextColor);
 }
 

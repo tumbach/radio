@@ -12,15 +12,21 @@ export default class Station {
   }
 
   getSong() {
-    if (!this.Song) {
-      return '<нет данных>';
+    if (!this.Song?.artist && !this.Song?.title) {
+      return '';
     }
-    return `${this.Song.artist} – ${this.Song.title}`;
+    if (this.Song.artist && this.Song.title) {
+      return `${this.Song.artist} – ${this.Song.title}`;
+    }
+    if (!this.Song.title) {
+      return this.Song.artist;
+    }
+    return this.Song.title;
   }
 
   getTime(now = Math.floor(+new Date()/1000)) {
     if (!this.Song) {
-      return 'not supported yet';
+      return 'no connection';
     }
     if (!this.Song.duration) {
       if (!this.Song.date) {
