@@ -49,8 +49,13 @@ export default class Station {
     return Math.floor(now - this.Song.date);
   }
 
-  setSong(song) {
-    this.Song = song;
+  setSong(song = {}) {
+    this.Song = {
+      artist: song.artist || '',
+      title: song.title || '',
+      date: song.date,
+      now: song.now
+    };
     this.updateDOM();
   }
 
