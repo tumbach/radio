@@ -6,34 +6,7 @@
     "sources": [
       {
         "name": "stream",
-        "url": "https://radio.tumba.ch/stream",
-        "type": "OPUS"
-      },
-      {
-        "name": "stream-low",
-        "url": "https://radio.tumba.ch/stream-low",
-        "type": "AAC"
-      },
-      {
-        "name": "stream-ultra-low",
-        "url": "https://radio.tumba.ch/stream-ultra-low",
-        "type": "AAC"
-      }
-    ]
-  },
-  {
-    "id": "tumbach-phonk",
-    "name": "Tumbach;Radio - phonk (beta)",
-    "url": "https://radio.tumba.ch",
-    "sources": [
-      {
-        "name": "phonk.opus",
-        "url": "https://radio.tumba.ch/phonk.opus",
-        "type": "OPUS"
-      },
-      {
-        "name": "phonk.aac",
-        "url": "https://radio.tumba.ch/phonk.aac",
+        "url": "https://radio.tumba.ch/stream.aac",
         "type": "AAC"
       }
     ]
@@ -127,23 +100,6 @@
       {
         "name": "mp3_96",
         "url": "https://radio.plaza.one/mp3_96",
-        "type": "MP3"
-      }
-    ]
-  },
-  {
-    "id": "lainon",
-    "url": "https://lainon.life/radio/cyberia.ogg",
-    "name": "lainon.life (cyberia)",
-    "sources": [
-      {
-        "name": "cyberia.ogg",
-        "url": "https://lainon.life/radio/cyberia.ogg",
-        "type": "OGG"
-      },
-      {
-        "name": "cyberia.mp3",
-        "url": "https://lainon.life/radio/cyberia.mp3",
         "type": "MP3"
       }
     ]
