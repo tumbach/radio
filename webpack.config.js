@@ -157,10 +157,11 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: path.resolve(__dirname, './public'),
+    static: {
+      directory: path.resolve(__dirname, './public'),
+    },
     compress: debug,
     hot: true,
     port: 8080,
-    watchContentBase: true
   },
 };
