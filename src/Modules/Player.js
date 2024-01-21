@@ -130,7 +130,12 @@ export default class Player {
 
   setStation(Station) {
     if (typeof Station === 'string') {
-      Station = this.getStation(Station);
+      try {
+        Station = this.getStation(Station);
+      } catch (e) {
+        // if currentStation is excluded from list, reset it to defaults
+        Station = this.getStation(this.StationList[0].id);
+      }
     }
     for (let { DOM } of this.StationList) {
       DOM.classList.remove("selected");
@@ -138,7 +143,7 @@ export default class Player {
 
     this.#currentStation = Station.id;
     globalThis.localStorage.setItem('station', Station.id);
-    this.PlayerDOM.station.innerText = Station.name;
+    this.DOM.setStationName(Station.name);
     Station.DOM.classList.add('selected');
 
     let types = Station.getContentTypes();
@@ -159,7 +164,7 @@ export default class Player {
 
 
   #fillSongDOM(Station) {
-    let { Song } = Station;
+    let { Song, name } = Station;
     if (!Song) {
       Song = {
         artist: '<нет данных>',
@@ -168,8 +173,9 @@ export default class Player {
       };
     }
     let { artist, title, date } = Song;
-    this.PlayerDOM.artist.innerText = artist;
-    this.PlayerDOM.title.innerText = title;
+    this.DOM.setStationName(name);
+    this.DOM.setArtist(artist);
+    this.DOM.setTitle(title);
     this.#setSongTimer(date);
   }
 

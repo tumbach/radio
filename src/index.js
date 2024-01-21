@@ -51,7 +51,7 @@ import PlayerDOM from './Modules/PlayerDOM';
     player.setStation(globalThis.localStorage.getItem('station') ?? StationList[0]);
 
     let ws = new WS({
-      url: 'wss://titleturtle.tumba.ch/ws/',
+      url: 'wss://titleturtle.tumba.ch/ws',
       timeout: i => Math.min(i * 5e3, 30e3)
     });
 

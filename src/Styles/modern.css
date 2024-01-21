@@ -7,8 +7,6 @@ html {
 }
 
 body {
-	font-size: 16px;
-	/*font-size: 2vh;*/
 	font-family: var(--fontFamily);
 	background-color: var(--backgroundColor);
 }
@@ -24,7 +22,6 @@ body {
 	width: 100%;
 	max-width: 768px;
 }
-
 
 
 #hex-button {
@@ -57,7 +54,6 @@ body {
 #hex-button-pause {
 	transform: translate(38%, 38%);
 }
-
 
 
 .player {
